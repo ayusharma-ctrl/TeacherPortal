@@ -72,7 +72,7 @@ const handleSignup = () => {
                             warning.textContent = 'Successfully Signed Up! Taking you to the Login Page...'
                             warning.style.color = '#47F558'
                             setTimeout(() => {
-                                location.replace('/login.html');
+                                location.replace('/TeacherPortal/login.html');
                             }, 2000)
                         }
                         else {
