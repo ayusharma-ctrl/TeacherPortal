@@ -37,7 +37,7 @@ function handleLogin() {
                 loginWarning.style.color = '#47F558'
                 loginWarning.textContent = 'Successfully Signed Up! Taking you to your account...'
                 setTimeout(() => {
-                    location.replace('TeacherPortal/dashboard.html');
+                    location.replace('dashboard.html');
                 }, 1000)
             }
             else {
@@ -72,7 +72,7 @@ const handleSignup = () => {
                             warning.textContent = 'Successfully Signed Up! Taking you to the Login Page...'
                             warning.style.color = '#47F558'
                             setTimeout(() => {
-                                location.replace('TeacherPortal/login.html');
+                                location.replace('login.html');
                             }, 1000)
                         }
                         else {
