@@ -72,7 +72,7 @@ const handleSignup = () => {
                             warning.textContent = 'Successfully Signed Up! Taking you to the Login Page...'
                             warning.style.color = '#47F558'
                             setTimeout(() => {
-                                window.location.href = process.env.PUBLIC_URL + '/login.html'
+                                location.replace('window.location.href = process.env.PUBLIC_URL + '/login.html'');
                             }, 1000)
                         }
                         else {
