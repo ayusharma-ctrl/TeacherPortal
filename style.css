@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #D9D9D9;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+}
+
+main {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 15vh;
+    margin-left: 10%;
+    /* border: 2px solid black; */
+}
+
+
+.inputs {
+    font-size: large;
+    border: 0;
+    border-bottom: 2px solid black;
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px 20px;
+}
+
+.inputs:focus{
+    outline: none;
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.dash {
+    margin-bottom: 40px;
+    font-size: large;
+}
+
+span {
+    color: orange;
+}
+
+.headContainer {
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 2px solid #E33737;
+}
+
+.btnHeadContainer > div > a {
+    text-decoration: none;
+}
+
+.btnHeadContainer {
+    display: flex;
+    width: 10vw;
+    justify-content: space-around;
+}
+
+#logInBtn, #logout, #signUpBtn, #changePass  {
+    background-color: black;
+    color: white;
+    width: 13rem;
+    height: 3rem;
+    font-size: large;
+    margin: 20px 0;
+}
+
+#loginWarning, #warning, #passChangeWarning {
+    margin: 20px 0;
+    font-size: large;
+    color: #E33737;
+}

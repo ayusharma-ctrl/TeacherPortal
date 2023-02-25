@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher's Portal Dashboard</title>
+    <!-- Import font from google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="fillDashboard()">
+
+    <header class="headContainer">
+        <div> Teacher Portal </div>
+        <div class="btnHeadContainer">
+            <div> <a href="index.html">Signup</a> </div>
+            <div> <a href="login.html">Login</a> </div>
+        </div>
+    </header>
+
+    <main>
+        <div className="Container">
+            <div class="dash">
+                <h1> Dashboard </h1>
+            </div>
+            <div class="dash">
+                Welcome Back <span class="dash-print"></span>!
+            </div>
+            <div class="dash">
+                Your Email ID: <span class="dash-print"></span>
+            </div>
+            <div class="dash">
+                <h2>Change Password</h2>
+            </div>
+            <div class="dash">
+                <input type="password" placeholder="Old Password" class="inputs" id="oldPassword" />
+            </div>
+
+            <div class="dash">
+                <input type="password" placeholder="New Password" class="inputs" id="newPassword" />
+            </div>
+
+            <div class="dash">
+                <input type="password" placeholder="Confirm New Password" class="inputs" id="newPassword2" />
+            </div>
+
+            <div class="dash" id="passChangeWarning">
+
+            </div>
+
+            <div class="dash">
+                <button type="submit" id='changePass' onclick="handleChangePass()">Change</button>
+            </div>
+
+            <div>
+                <button type="submit" id='logout' onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        var nameDash = document.getElementsByClassName('dash-print')[0]
+        var emailDash = document.getElementsByClassName('dash-print')[1]
+        var logoutBtn = document.getElementById('logout');
+
+        function fillDashboard() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+            nameDash.textContent = currentUser.name
+            emailDash.textContent = currentUser.email
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('currentUser');
+            location.replace('/login.html');
+        }
+
+        function handleChangePass() {
+            const oldPassword = document.getElementById('oldPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const newPassword2 = document.getElementById('newPassword2').value;
+            const passChangeWarning = document.getElementById('passChangeWarning');
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
+            if (oldPassword !== '' && newPassword !== '' && newPassword2 !== '') {
+                if (oldPassword == currentUser.pass) {
+                    if (newPassword.length >= 8 && newPassword2.length >= 8) {
+                        if (newPassword == newPassword2) {
+                            if (newPassword !== oldPassword) {
+                                currentUser.pass = newPassword
+                                localStorage.setItem('currentUser', JSON.stringify(currentUser))
+                                let users = JSON.parse(localStorage.getItem('users'))
+                                users.forEach((e) => {
+                                    if(e.email === currentUser.email){
+                                        e.pass = newPassword
+                                    }
+                                })
+                                localStorage.setItem('users', JSON.stringify(users))
+                                passChangeWarning.textContent = 'Success: Password is changed!'
+                                passChangeWarning.style.color = '#47F558'
+                                document.getElementById('oldPassword').value = ''
+                                document.getElementById('newPassword').value = ''
+                                document.getElementById('newPassword2').value = ''
+                            }
+                            else {
+                                passChangeWarning.textContent = 'Error: New Password & Old Password cannot be same!'
+                            }
+                        }
+                        else {
+                            passChangeWarning.textContent = 'Error: New Password & Confirm New Password should match!'
+                        }
+                    }
+                    else {
+                        passChangeWarning.textContent = 'Error: Password should have atleast 8 characters!'
+                    }
+                }
+                else {
+                    passChangeWarning.textContent = 'Error: Old password is not correct!'
+                }
+            }
+            else {
+                passChangeWarning.textContent = 'Error: Fields cannot be empty!'
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

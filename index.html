@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your account</title>
+    <!-- Import font from google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="headContainer">
+        <div> Teacher Portal </div>
+        <div class="btnHeadContainer">
+            <div> <a href="index.html">Signup</a> </div>
+            <div> <a href="login.html">Login</a> </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div>
+                <h1> Signup </h1>
+            </div>
+            <div>
+                <input type="text" placeholder="Full Name" class="inputs" />
+            </div>
+            <div>
+                <input type="email" placeholder="Email" class="inputs" />
+            </div>
+            <div>
+                <input type="password" placeholder="Password" class="inputs" />
+            </div>
+            <div>
+                <input type="password" placeholder="Confirm Password" class="inputs" />
+            </div>
+            <div id="warning">
+            </div>
+            <div>
+                <button id='signUpBtn' onclick="handleSignup()">SignUp</button>
+            </div>
+            <div>
+                Already a member? <a href="login.html">Click here</a>  to LogIn.
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
