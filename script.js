@@ -72,8 +72,8 @@ const handleSignup = () => {
                             warning.textContent = 'Successfully Signed Up! Taking you to the Login Page...'
                             warning.style.color = '#47F558'
                             setTimeout(() => {
-                                location.replace('/TeacherPortal/login.html');
-                            }, 2000)
+                                window.location.href = process.env.PUBLIC_URL + '/login.html'
+                            }, 1000)
                         }
                         else {
                             warning.innerHTML = 'Error: Please enter a unique email. This email is already registered.'
