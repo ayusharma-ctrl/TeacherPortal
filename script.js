@@ -15,10 +15,10 @@ var users = []
 function routing() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'))
     if (currentUser !== null) {
-        window.location.replace('dashboard.html');
+        window.location.replace('TeacherPortal/dashboard.html');
     }
     else {
-        window.location.replace('/index.html');
+        window.location.replace('TeacherPortal/index.html');
         window.stop();
     }
 }
@@ -37,7 +37,7 @@ function handleLogin() {
                 loginWarning.style.color = '#47F558'
                 loginWarning.textContent = 'Successfully Signed Up! Taking you to your account...'
                 setTimeout(() => {
-                    location.replace('/TeacherPortal/dashboard.html');
+                    location.replace('TeacherPortal/dashboard.html');
                 }, 1000)
             }
             else {
@@ -72,7 +72,7 @@ const handleSignup = () => {
                             warning.textContent = 'Successfully Signed Up! Taking you to the Login Page...'
                             warning.style.color = '#47F558'
                             setTimeout(() => {
-                                location.replace('/TeacherPortal/login.html');
+                                location.replace('TeacherPortal/login.html');
                             }, 1000)
                         }
                         else {
