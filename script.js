@@ -15,10 +15,10 @@ var users = []
 function routing() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'))
     if (currentUser !== null) {
-        window.location.replace('TeacherPortal/dashboard.html');
+        window.location.replace('dashboard.html');
     }
     else {
-        window.location.replace('TeacherPortal/index.html');
+        window.location.replace('index.html');
         window.stop();
     }
 }
